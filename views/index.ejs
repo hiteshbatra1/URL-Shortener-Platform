@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(199, 194, 194);
+      }
+      td,
+      th {
+        border: 2px solid;
+        padding: 10px;
+        width: 50px;
+      }
+      form {
+        margin: 10px;
+        padding: 10px;
+      }
+      input {
+        padding: 8px;
+        border-radius: 10px;
+        border: 1px solid;
+        width: 200px;
+        margin: 10px;
+      }
+      button {
+        padding: 15px;
+        cursor: pointer;
+        border-radius: 10px;
+        font-weight: bold;
+        border: none;
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>URL SHORTNER</h1>
+    <% if (locals.id) { %>
+    <h3>URL GENERATED: http://localhost:8001/url/<%= id %></h3>
+    <% } %>
+
+    <form method="post" action="/url">
+      <label>ENTER URL</label>
+      <input type="text" name="url" placeholder="https://example.com" />
+      <button type="submit">GENERATE</button>
+    </form>
+    <div>
+      <% if (locals.urls) { %>
+      <table>
+        <thead>
+          <th>S.No</th>
+          <th>Short ID</th>
+          <th>Redirect URL</th>
+          <th>Clicks</th>
+        </thead>
+        <tbody>
+          <% urls.forEach((url,index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= url.shortId %></td>
+            <td><%= url.redirectUrl %></td>
+            <td><%= url.visitHistory.length %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <% } %>
+    </div>
+  </body>
+</html>
