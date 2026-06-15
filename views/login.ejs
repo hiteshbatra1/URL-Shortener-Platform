@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body {
+        margin: 20px;
+        background-color: rgb(39, 37, 37);
+        color: white;
+      }
+      form {
+        background-color: rgb(20, 120, 159);
+        width: 50%;
+        height: 250px;
+        margin: 100px auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+      }
+      input {
+        padding: 10px;
+        margin: 5px;
+      }
+      button {
+        width: 20%;
+        margin: auto;
+        padding: 15px;
+        cursor: pointer;
+        border-radius: 10px;
+        font-weight: bold;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form action="/user/login" method="post">
+      <label>Email:</label>
+      <input type="text" name="email" />
+      <label>Password:</label>
+      <input type="text" name="password" />
+
+      <button type="Login">Login</button>
+    </form>
+  </body>
+</html>
